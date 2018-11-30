@@ -1,9 +1,14 @@
 # frozen_string_literal: true
+
 class JwtManager
   HS265 = 'HS256'.freeze
+  require 'jwt'
 
-  def initialize(secret_key_env_variable_name = 'JWT_MANAGER_SHARED_SECRET')
-    @hmac_secret = ENV[secret_key_env_variable_name]
+  def initialize(secret_key_env_var_name = 'JWT_MANAGER_SHARED_SECRET')
+    if ENV[secret_key_env_var_name].nil?
+      raise ArgumentError, 'JWT Shared secret not configured.'
+    end
+    @hmac_secret = ENV[secret_key_env_var_name]
   end
 
   def encode(payload)
