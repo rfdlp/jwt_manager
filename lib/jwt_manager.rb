@@ -2,7 +2,7 @@
 class JwtManager
   HS265 = 'HS256'.freeze
 
-  def initialize(secret_key_env_variable_name)
+  def initialize(secret_key_env_variable_name = 'JWT_MANAGER_SHARED_SECRET')
     @hmac_secret = ENV[secret_key_env_variable_name]
   end
 
@@ -11,6 +11,6 @@ class JwtManager
   end
 
   def decode(token)
-    JWT.decode(token, @hmac_secret, true, { algorithm: HS265 })
+    JWT.decode(token, @hmac_secret, true, algorithm: HS265)
   end
 end
