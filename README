@@ -1,3 +1,5 @@
+[![Gem Version](https://badge.fury.io/rb/jwt_manager.svg)](https://badge.fury.io/rb/jwt_manager)
+
 Manages encoding/decoding of any payload data.
 
 You can dynamically refer to the key used to encode/decode through the use of `secret_key_env_variable_name`.
