@@ -15,5 +15,5 @@ Use this variable's name to initialize the JWT Manager:
 `token = manager.encode(payload) `
 
 
-**Decoding**
+**Decoding**  
 `manager.decode(token)`
